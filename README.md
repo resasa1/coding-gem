@@ -7,6 +7,10 @@ Random named this project Coding-gem xD, build for education app
 
 Follow the steps below to set up the project locally.
 
+## ** tools **
+*React-native
+*expo app
+*typescript
 ### Prerequisites
 - [Git](https://git-scm.com/) installed on your machine.
 - [Node.js](https://nodejs.org/) installed (includes npm).
@@ -23,6 +27,8 @@ Follow the steps below to set up the project locally.
 After cloning, navigate to the project directory using:
   ```bash
    git clone https://github.com/resasa1/coding-gem/
+
+
 
 
 
