@@ -8,9 +8,10 @@ Random named this project Coding-gem xD, build for education app
 Follow the steps below to set up the project locally.
 
 ## ** tools **
-*React-native
-*expo app
-*typescript
+*React-native <br>
+*expo app <br>
+*typescript <br>
+*firebase
 ### Prerequisites
 - [Git](https://git-scm.com/) installed on your machine.
 - [Node.js](https://nodejs.org/) installed (includes npm).
