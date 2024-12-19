@@ -1,9 +1,8 @@
-import { Image, StyleSheet, View, Text, FlatList } from 'react-native';
+import { Image, StyleSheet, View, Text, FlatList, ScrollView } from 'react-native';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 import { green } from 'react-native-reanimated/lib/typescript/Colors';
-// import { Navigation } from 'react-native-navigation';
-import NavigationProfile from '@/components/navigationProfile';
+
 // Sample badge data
 const badges = [
   { id: 1, icon: require('@/assets/images/badges/swordz.png') },
@@ -17,39 +16,64 @@ const badges = [
   { id: 9, icon: require('@/assets/images/badges/swordz.png') },
 ];
 
+// Sample user data
+const user = {
+  name: 'Edward Elric',
+  tag: '@EdwardElric',
+  points: 8121,
+  indeks: '▼',
+};
+
+const streak = 
+  {  head: 1,
+    desc: 'day streak'
+  }
+
+
+
 export default function HomeScreen() {
   return (
     <ThemedView style={styles.container}>
 
       {/* navigation header should be here*/}
-      <NavigationProfile />
+      
       {/* Profile Section */}
       <View style={styles.profileSection}>
         <Image
           source={require('@/assets/images/badges/shield.svg')}
           style={styles.profileImage}
         />
-        <Text style={styles.username}>Edward Elric</Text>
-        <Text style={styles.userHandle}>@edwardElric</Text>
-        <Text style={styles.points}>8122 pts ▲</Text>
+        <Text style={styles.username}>{user.name}</Text>
+        <Text style={styles.userHandle}>{user.tag}</Text>
+        <Text style={styles.points}>{user.points} points {user.indeks}</Text>
       </View>
 
       {/* Badge Section */}
-      <FlatList
-        data={badges}
-        keyExtractor={(item) => item.id.toString()}
-        numColumns={3}
-        contentContainerStyle={styles.badgeContainer}
-        renderItem={({ item }) => (
-          <View style={styles.badgeItem}>
-            <Image source={item.icon} style={styles.badgeIcon} />
-          </View>
-        )}
-      />
+      <Text style={styles.headTitle}>Badges</Text>
+      <ScrollView horizontal={false} contentContainerStyle={{ flexGrow: 1 }}>
+        <FlatList
+          data={badges}
+          keyExtractor={(item) => item.id.toString()}
+          numColumns={3}
+          contentContainerStyle={styles.badgeContainer}
+          renderItem={({ item }) => (
+            <View style={styles.badgeItem}>
+              <Image source={item.icon} style={styles.badgeIcon} />
+            </View>
+          )}
+        />
+      </ScrollView>
+
+      {/* <View style={styles.statistics}>
+        <Text style={styles.headTitle}>Statisctics</Text>
+        <View style={styles.cardZ}>
+          <Text style={styles.username}>{streak.head}</Text>
+          <Text style={styles.userHandle}>{streak.desc}</Text>
+        </View>
+      </View> */}
     </ThemedView>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -57,6 +81,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#0F1E1D',
     alignItems: 'center',
     paddingTop: 50,
+    paddingBottom: 50,
+    
   },
   profileSection: {
     alignItems: 'center',
@@ -70,6 +96,12 @@ const styles = StyleSheet.create({
     borderColor: '#33FFAA',
   },
   username: {
+    color: '#FFFFFF',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+  headTitle: {
     color: '#FFFFFF',
     fontSize: 20,
     fontWeight: 'bold',
@@ -95,12 +127,19 @@ const styles = StyleSheet.create({
     height: 100,
     width: 100,
     overflow: 'hidden',
+    borderRadius: 50,
+    borderWidth: 2,
   },
   badgeIcon: {
-    width: 50,
-    height: 50,
+    width: 100,
+    height: 100,
     tintColor: '#FFFFFF',
   },
-
+  statistics: {
+    marginTop: 20,
+  },
+  cardZ: {
+    borderWidth: 2,
+    borderRadius: 20,
+  },
 });
-

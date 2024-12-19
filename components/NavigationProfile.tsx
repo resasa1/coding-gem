@@ -12,7 +12,7 @@ function NavigationProfile(): any {
 
 const styles = StyleSheet.create({
     layouts: {
-        maxWidth: 20,
+        maxWidth: 200,
         padding: 6,
         backgroundColor: '#aedabc'
     },
