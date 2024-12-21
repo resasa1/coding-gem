@@ -2,6 +2,7 @@ import { Image, StyleSheet, View, Text, FlatList, ScrollView } from 'react-nativ
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 import { green } from 'react-native-reanimated/lib/typescript/Colors';
+import users from '@/utils/user.json';
 
 // Sample badge data
 const badges = [
@@ -43,9 +44,9 @@ export default function HomeScreen() {
           source={require('@/assets/images/badges/shield.svg')}
           style={styles.profileImage}
         />
-        <Text style={styles.username}>{user.name}</Text>
-        <Text style={styles.userHandle}>{user.tag}</Text>
-        <Text style={styles.points}>{user.points} points {user.indeks}</Text>
+        <Text style={styles.username}>{users[0].name}</Text>
+        <Text style={styles.userHandle}>{users[0].tag}</Text>
+        <Text style={styles.points}>{users[0].points} points {users[0].indeks}</Text>
       </View>
 
       {/* Badge Section */}
